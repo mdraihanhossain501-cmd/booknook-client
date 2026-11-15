@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BookNook
 
-## Getting Started
+**Live site:** https://booknook-client-pearl.vercel.app
 
-First, run the development server:
+BookNook is a small online library. Add a book, borrow a book, return a book.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Browse all books, with the latest arrivals and a Swiper slider on the home page
+- Register and log in with email and password or with Google (Better Auth and MongoDB)
+- Add your own books with a cover image uploaded to imgbb
+- Edit or delete your books from My Books, with a confirmation modal before deleting
+- Borrow a book for 7 days and return it from My Borrows, with live copy counts
+- JWT-protected API routes, so you can only change your own data
+- Loading spinners, toast messages, a custom 404 page and a responsive layout
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js (App Router), TypeScript, Tailwind CSS, DaisyUI, Swiper, Better Auth, MongoDB, Express, JWT
 
-## Learn More
+## Repositories
 
-To learn more about Next.js, take a look at the following resources:
+- Client: https://github.com/mdraihanhossain501-cmd/booknook-client
+- Server: https://github.com/mdraihanhossain501-cmd/booknook-server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Run `npm install`
+2. Create a `.env.local` file with these variables: `NEXT_PUBLIC_API_URL`, `NEXT_PUBLIC_IMGBB_KEY`, `MONGODB_URI`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
+3. Run `npm run dev` and open http://localhost:3000
