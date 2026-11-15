@@ -4,8 +4,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { uploadImage } from "@/lib/imgbb";
 import type { Book } from "@/lib/types";
+import { authFetch } from "@/lib/api-client";
 
-const API = process.env.NEXT_PUBLIC_API_URL;
 const categories = ["Fiction", "Science", "History", "Kids", "Others"];
 
 type Props = {
@@ -53,7 +53,7 @@ export default function EditBookModal({ book, onClose, onSaved }: Props) {
         copies,
       };
 
-      const res = await fetch(`${API}/books/${book._id}`, {
+      const res = await authFetch(`/books/${book._id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),

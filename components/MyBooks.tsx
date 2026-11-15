@@ -8,6 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import EditBookModal from "@/components/EditBookModal";
 import DeleteConfirmModal from "@/components/DeleteConfirmModal";
 import type { Book } from "@/lib/types";
+import { authFetch } from "@/lib/api-client";
 
 const API = process.env.NEXT_PUBLIC_API_URL;
 
@@ -57,7 +58,7 @@ export default function MyBooks() {
     if (!deletingBook) return;
     setDeleting(true);
     try {
-      const res = await fetch(`${API}/books/${deletingBook._id}`, {
+      const res = await authFetch(`/books/${deletingBook._id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete the book");
