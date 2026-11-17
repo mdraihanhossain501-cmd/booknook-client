@@ -44,7 +44,7 @@ export default function BookDetails({ book }: { book: Book }) {
                     <div className="space-y-1 text-sm text-base-content/70">
                         <p>
                             <span className="font-semibold text-base-content">Added by:</span>{" "}
-                            {book.userName}
+                            {book.userName} ({book.userEmail})
                         </p>
                         <p>
                             <span className="font-semibold text-base-content">Added on:</span>{" "}
