@@ -3,25 +3,22 @@
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const current =
-      document.documentElement.getAttribute("data-theme") === "dark"
-        ? "dark"
-        : "light";
-    setTheme(current);
+    const scheme = getComputedStyle(document.documentElement).colorScheme;
+    setDark(scheme === "dark");
   }, []);
 
   function toggle() {
-    const next = theme === "dark" ? "light" : "dark";
+    const next = dark ? "booknook" : "booknook-dark";
     document.documentElement.setAttribute("data-theme", next);
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem("bn-theme", next);
     } catch {
-    
+      // storage can be blocked, the toggle still works for this visit
     }
-    setTheme(next);
+    setDark(!dark);
   }
 
   return (
@@ -31,7 +28,7 @@ export default function ThemeToggle() {
       aria-label="Toggle dark and light theme"
       className="btn btn-ghost btn-circle"
     >
-      {theme === "dark" ? (
+      {dark ? (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="4" />
           <path strokeLinecap="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" />

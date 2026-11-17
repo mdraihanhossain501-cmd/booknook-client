@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("theme");if(t){document.documentElement.setAttribute("data-theme",t)}}catch(e){}`,
+            __html: `try{var t=localStorage.getItem("bn-theme");if(t){document.documentElement.setAttribute("data-theme",t)}}catch(e){}`,
           }}
         />
       </head>
