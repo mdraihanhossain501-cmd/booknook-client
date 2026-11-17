@@ -71,4 +71,21 @@
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background-color: var(--color-base-100);
+  background-image:
+    radial-gradient(
+      circle at 10% 0%,
+      color-mix(in oklab, var(--color-primary) 12%, transparent),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 95% 15%,
+      color-mix(in oklab, var(--color-secondary) 14%, transparent),
+      transparent 35%
+    ),
+    radial-gradient(
+      color-mix(in oklab, var(--color-base-content) 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: auto, auto, 22px 22px;
 }
